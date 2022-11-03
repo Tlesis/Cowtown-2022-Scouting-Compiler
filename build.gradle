@@ -1,11 +1,14 @@
 plugins {
-    id 'java'
+    id "application"
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'org.usd232.robotics.CompilerMain'
-    }
+apply plugin : "java" 
+ext {
+   javaMainClass = "org.usd232.robotics.CompilerMain"
+}
+
+application {
+    mainClassName = javaMainClass
 }
 
 repositories { mavenCentral() }
