@@ -36,6 +36,10 @@ public class Reader {
         this.list = csv.parse();
     }
 
+    public List getList() {
+        return list;
+    }
+
     public void print() {
         for (ScoutingData data : list) {
             System.out.println(data.toString());
@@ -45,7 +49,7 @@ public class Reader {
     private static ColumnPositionMappingStrategy setColumMapping() {
         ColumnPositionMappingStrategy strategy = new ColumnPositionMappingStrategy();
         strategy.setType(ScoutingData.class);
-        String[] columns = new String[]{"matchId", "teamId", "allianceColor", "autoLow", "autoHigh", "autoHeld", "teleOpLow", "teleOpHigh", "teleOpColorSensor", "teleOpClimbSpot", "won"};
+        String[] columns = new String[] { "matchId", "teamId", "allianceColor", "autoLow", "autoHigh", "autoHeld", "teleOpLow", "teleOpHigh", "teleOpColorSensor", "teleOpClimbSpot", "won" };
         strategy.setColumnMapping(columns);
         return strategy;
     }
