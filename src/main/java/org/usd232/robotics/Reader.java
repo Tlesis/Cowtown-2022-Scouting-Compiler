@@ -27,7 +27,6 @@ public class Reader {
     /** allows the refrenced CSV file to change */
     public void setList(String filePath) throws Exception {
         this.file = new File(filePath);
-        System.out.println(file.toPath());
         CSVReader csvReader = new CSVReader(new FileReader(file));
 
         CsvToBean csv = new CsvToBean();
