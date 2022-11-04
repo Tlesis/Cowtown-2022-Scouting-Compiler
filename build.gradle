@@ -8,9 +8,9 @@ ext {
 }
 
 application {
-    mainClassName = javaMainClass
+    getMainClass().set(javaMainClass)
 }
-
+ 
 repositories { mavenCentral() }
 
 dependencies {
