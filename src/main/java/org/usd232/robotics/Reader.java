@@ -15,16 +15,24 @@ public class Reader {
     private File file;
     private List<ScoutingData> list;
 
+    /** i dont anticipate needing this */
     public Reader() {
         this.file = null;
         this.list = null;
     }
 
+    /**
+     * constructor that calls {@code setList}
+     * @param filePath what csv file to read from
+     */
     public Reader(String filePath) throws Exception {
         setList(filePath);
     }
 
-    /** allows the refrenced CSV file to change */
+    /**
+     * Reads the csv file and binds it to beans
+     * @param filePath what csv file to read from
+     */
     public void setList(String filePath) throws Exception {
         this.file = new File(filePath);
         CSVReader csvReader = new CSVReader(new FileReader(file));
@@ -36,10 +44,12 @@ public class Reader {
         this.list = csv.parse();
     }
 
+    /** get list */
     public List getList() {
         return list;
     }
 
+    /** print out the data */
     public void print() {
         for (ScoutingData data : list) {
             System.out.println(data.toString());
@@ -49,7 +59,8 @@ public class Reader {
     private static ColumnPositionMappingStrategy setColumMapping() {
         ColumnPositionMappingStrategy strategy = new ColumnPositionMappingStrategy();
         strategy.setType(ScoutingData.class);
-        String[] columns = new String[] { "matchId", "teamId", "allianceColor", "autoLow", "autoHigh", "autoHeld", "teleOpLow", "teleOpHigh", "teleOpColorSensor", "teleOpClimbSpot", "won" };
+        // FIXME WHEN UPDATING: make these match the object names in ScoutingData
+        String[] columns = new String[] { "matchId", "teamId", "allianceColor", "autoLow", "autoHigh", "autoHeld", "autoTaxi", "teleOpLow", "teleOpHigh", "teleOpColorSensor", "teleOpClimbSpot", "won" };
         strategy.setColumnMapping(columns);
         return strategy;
     }
