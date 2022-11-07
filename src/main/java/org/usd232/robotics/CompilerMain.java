@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 public class CompilerMain {
     private static final int FILE_DEPTH = 1;
+    private static final String COMPILED_FILE_NAME = "compiled";
 
     public static void main(String args[]) {
         // needs to have an argv telling it where to look for the files
@@ -26,7 +27,7 @@ public class CompilerMain {
             // the reason we dont use a for each loop is for the header
             for (int i = 0; i < filePaths.size(); i++) {
                 Reader csv = new Reader(filePaths.get(i));
-                Writer.fileWriter(args[0] + "/compiled.csv", csv.getList(), (i == 0) ? true : false);
+                Writer.fileWriter(args[0] + "/" + COMPILED_FILE_NAME + ".csv", csv.getList(), (i == 0) ? true : false);
             }
 
         } catch (Exception e) {

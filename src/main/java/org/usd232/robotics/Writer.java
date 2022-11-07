@@ -26,11 +26,9 @@ public class Writer {
             List<String[]> data = toStringArray(list, header);
 
             csvWriter.writeAll(data);
-
             csvWriter.close();
 
             boolean exists = Files.exists(Paths.get(path));
-
             Files.write(Paths.get(path), writer.toString().getBytes(), (exists) ? StandardOpenOption.APPEND
                                                                                 : StandardOpenOption.CREATE);
 
@@ -52,19 +50,17 @@ public class Writer {
 		// adding header
         if (header)
             // FIXME WHEN UPDATING: update header to make sense
-		    records.add(new String[] { "MatchId", "TeamId", "AllianceColor", "AutoCargoLower", "AutoCargoOuter", "AutoHeld", "AutoMoves", "TeleOpCargoLower", "TeleOpCargoOuter", "TeleOpCanSeeColor", "GrabBarPosition", "Won"});
+		    records.add(new String[] { "MatchId", "TeamId", "AllianceColor", "AutoCargoLower", "AutoCargoOuter", "AutoCargoHeld", "AutoMoves", "TeleOpCargoLower", "TeleOpCargoOuter", "TeleOpCanSeeColor", "GrabBarPosition", "Won"});
 
         // start index at 1 so we can skip the header 
         // of the file because its added above
 		for (int i = 1; i < list.size(); i++) {
             ScoutingData data = list.get(i);
-            if (data.getMatchId() != "MatchId") {
-                // FIXME WHEN UPDATING: make getters return correct values
-                records.add(new String[] { data.getMatchId(), data.getTeamId(), data.getAllianceColor(),
-                                        data.getAutoLow(), data.getAutoHigh(), data.getAutoHeld(), data.getAutoTaxi(),
-                                        data.getTeleOpLow(), data.getTeleOpHigh(), data.getTeleOpColorSensor(),
-                                        data.getTeleOpClimbSpot(), data.getWon() });
-            }
+            // FIXME WHEN UPDATING: make getters return correct values
+            records.add(new String[] { data.getMatchId(), data.getTeamId(), data.getAllianceColor(),
+                                    data.getAutoLow(), data.getAutoHigh(), data.getAutoHeld(), data.getAutoTaxi(),
+                                    data.getTeleOpLow(), data.getTeleOpHigh(), data.getTeleOpColorSensor(),
+                                    data.getTeleOpClimbSpot(), data.getWon() });
 		}
 		return records;
 	}

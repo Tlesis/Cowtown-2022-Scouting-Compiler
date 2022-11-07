@@ -59,7 +59,7 @@ public class Reader {
     private static ColumnPositionMappingStrategy setColumMapping() {
         ColumnPositionMappingStrategy strategy = new ColumnPositionMappingStrategy();
         strategy.setType(ScoutingData.class);
-        // FIXME WHEN UPDATING: make these match the object names in ScoutingData
+        // FIXME WHEN UPDATING: make these strings match the object names in ScoutingData
         String[] columns = new String[] { "matchId", "teamId", "allianceColor", "autoLow", "autoHigh", "autoHeld", "autoTaxi", "teleOpLow", "teleOpHigh", "teleOpColorSensor", "teleOpClimbSpot", "won" };
         strategy.setColumnMapping(columns);
         return strategy;

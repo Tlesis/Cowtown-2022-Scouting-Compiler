@@ -1,0 +1,2 @@
+MatchId,TeamId,AllianceColor,AutoCargoLower,AutoCargoOuter,AutoCargoHeld,AutoMoves,TeleOpCargoLower,TeleOpCargoOuter,TeleOpCanSeeColor,GrabBarPosition,Won,Notes
+1,1984,Red,0,0,1,true,0,0,false,Did not Climb,true

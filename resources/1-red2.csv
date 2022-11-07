@@ -1,0 +1,2 @@
+MatchId,TeamId,AllianceColor,AutoCargoLower,AutoCargoOuter,AutoCargoHeld,AutoMoves,TeleOpCargoLower,TeleOpCargoOuter,TeleOpCanSeeColor,GrabBarPosition,Won,Notes
+1,1825,Red,0,3,1,true,1,3,false,Transversal,true
